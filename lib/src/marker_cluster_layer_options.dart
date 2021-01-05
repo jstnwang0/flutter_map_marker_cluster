@@ -50,8 +50,7 @@ class PopupOptions {
   });
 }
 
-typedef ClusterWidgetBuilder = Widget Function(
-    BuildContext context, List<Marker> markers);
+typedef ClusterWidgetBuilder = Widget Function(BuildContext context, List<Marker> markers);
 
 class MarkerClusterLayerOptions extends LayerOptions {
   /// Cluster builder
@@ -118,6 +117,8 @@ class MarkerClusterLayerOptions extends LayerOptions {
   /// Popup's options that show when tapping markers or via the PopupController.
   final PopupOptions popupOptions;
 
+  final double markerZoom;
+
   MarkerClusterLayerOptions({
     @required this.builder,
     this.markers = const [],
@@ -127,8 +128,7 @@ class MarkerClusterLayerOptions extends LayerOptions {
     this.maxClusterRadius = 80,
     this.disableClusteringAtZoom = 20,
     this.animationsOptions = const AnimationsOptions(),
-    this.fitBoundsOptions =
-        const FitBoundsOptions(padding: EdgeInsets.all(12.0)),
+    this.fitBoundsOptions = const FitBoundsOptions(padding: EdgeInsets.all(12.0)),
     this.zoomToBoundsOnClick = true,
     this.centerMarkerOnClick = true,
     this.spiderfyCircleRadius = 40,
@@ -141,5 +141,6 @@ class MarkerClusterLayerOptions extends LayerOptions {
     this.onClusterTap,
     this.onMarkersClustered,
     this.popupOptions,
+    this.markerZoom,
   }) : assert(builder != null);
 }
